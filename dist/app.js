@@ -174,12 +174,19 @@ function addTodos(filterType, searchWord) {
       })
     }
   }
+
   filteredTodos.forEach(todo => {
     let $li = $('<li><i class="fa fa-circle" aria-hidden="true"></i><div class="list-header"><h3>' + todo.title + '</h3><button class="trash-btn" type="button"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div><div class="list-descr"><p>' + todo.description + '</p></div></li>')
     $todos.append($li)
     if (todo.state === 1) {
       $li.addClass('completed')
       $li.children('i').removeClass('fa-circle').addClass('fa-check')
+    }
+    if (todo.description === '') {
+      $li.children('div').children('p').css('display', 'none');
+      $li.children('div').children('h3').css('border-bottom-right-radius', '3px');
+      $li.children('div').children('h3').css('border-bottom-left-radius', '3px');
+      $li.children('div').children('.trash-btn').css('border-bottom-right-radius', '3px');
     }
     $li.children('i').on('click', toggleTODO)
     $li.children('div').children('h3').on('click', toggleTODO)
@@ -264,6 +271,7 @@ function toggleSearchBar() {
   } else {
     $searchBar.css('width', '0')
     $searchBar.css('padding-left', '0')
+    $searchBar.blur()
   }
 }
 
