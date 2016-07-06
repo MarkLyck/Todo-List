@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project Title</title>
+
+    <!-- Normalise -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" media="screen" title="no title" charset="utf-8">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="font-awesome.min.css" media="screen">
+
+    <!-- main CSS -->
+    <link rel="stylesheet" href="main.css" media="screen">
+  </head>
+  <body>
+    <header>
+      <button id="search-btn" type="button" name="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+      <input id="search-bar" type="test" name="name" value="">
+      <h1>Todo List</h1>
+      <button id="new-todo" type="button" name="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+    </header>
+    <ul id="todos">
+
+    </ul>
+    <footer>
+      <button id="filter-all" class="filter-button selected" type="button" name="button">All</button>
+      <button id="filter-completed" class="filter-button" type="button" name="button"><i class="fa fa-check" aria-hidden="true"></i></button>
+      <button id="filter-todo" class="filter-button" type="button" name="button"><i class="fa fa-circle" aria-hidden="true"></i></button>
+    </footer>
+
+    <div id="modal-container">
+      <div class="login-modal modal">
+        <input id="login-input" type="email" name="name" value="">
+        <button id="login-btn" type="button" name="button">Login</button>
+      </div>
+      <div class="new-todo-modal modal">
+        <h2>Create new todo</h2>
+        <form id="new-todo-form" action="index.html" method="post">
+          <label for="title-input">Title</label>
+          <input id="title-input" type="text" name="name" value="">
+          <label for="description-input">Description</label>
+          <input id="description-input" type="textbox" name="name" value="">
+          <button id="add-todo" type="button" name="button">Add todo</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+    <script src="app.js" type="text/javascript"></script>
+  </body>
+</html>
