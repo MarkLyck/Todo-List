@@ -1,0 +1,205 @@
+body {
+  background: #363D45; }
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+h1, p, h2, h3 {
+  padding: 0;
+  margin: 0;
+  color: #fff; }
+
+button, input {
+  outline: none; }
+
+button {
+  background-color: #cb5c51;
+  border: none;
+  color: #fff; }
+  button:hover {
+    cursor: pointer;
+    background: #c54a3d; }
+
+header {
+  display: flex;
+  position: fixed;
+  background: #E1675A;
+  height: 80px;
+  top: 0;
+  width: 100vw;
+  z-index: 2; }
+  header h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+  header button {
+    margin-left: auto;
+    background: none;
+    z-index: 3; }
+    header button:hover {
+      background: #d93f2f; }
+
+.login-modal {
+  border-radius: 3px; }
+  .login-modal input {
+    padding: 30px;
+    font-size: 1.5rem;
+    border: 0;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px; }
+  .login-modal button {
+    padding: 30px;
+    font-size: 1.5rem;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px; }
+
+.new-todo-modal {
+  border: 0;
+  border-radius: 3px; }
+  .new-todo-modal h2 {
+    font-weight: normal;
+    padding: 20px 0 0 20px; }
+  .new-todo-modal label {
+    padding: 20px; }
+  .new-todo-modal input {
+    padding: 30px;
+    font-size: 1.5rem;
+    border: 0;
+    background: #f2f2f2; }
+  .new-todo-modal button {
+    padding: 30px;
+    font-size: 1.5rem;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px; }
+
+#new-todo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 100%;
+  background: #c54a3d; }
+
+#search-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  font-size: 1.5rem; }
+  #search-btn:hover {
+    background: #c54a3d; }
+
+#search-bar {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  height: 80px;
+  width: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  border: none;
+  flex-grow: 1;
+  z-index: 4;
+  transition: 0.5s; }
+
+#modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5; }
+  #modal-container .modal {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 80%; }
+    #modal-container .modal h2 {
+      color: #000; }
+    #modal-container .modal #new-todo-form {
+      display: flex;
+      flex-direction: column; }
+  #modal-container .new-todo-modal {
+    display: none; }
+
+#todos {
+  margin-top: 100px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden; }
+  #todos li {
+    margin: 20px 0 20px 0;
+    position: relative; }
+    #todos li > i {
+      position: absolute;
+      top: 50%;
+      left: 2vw;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: #276ab8; }
+    #todos li div {
+      width: 80%;
+      margin: 0 auto; }
+      #todos li div h3 {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        width: 100%;
+        padding: 20px;
+        font-weight: normal;
+        background-color: #22272d; }
+      #todos li div p {
+        padding: 20px;
+        font-size: 1rem;
+        background-color: #e7f1f4;
+        color: #727C84;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px; }
+    #todos li .list-header {
+      display: flex;
+      position: relative;
+      border: 0; }
+      #todos li .list-header .trash-btn {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 60px;
+        top: 0;
+        border: 0;
+        border-top-right-radius: 3px; }
+    #todos li .list-descr {
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px; }
+    #todos li:last-child {
+      margin-bottom: 100px; }
+  #todos .completed .fa-check {
+    color: #28b877; }
+  #todos .completed div h3 {
+    background: rgba(34, 39, 45, 0.5);
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.5); }
+  #todos .completed div .trash-btn {
+    background: rgba(203, 92, 81, 0.5);
+    color: rgba(255, 255, 255, 0.5); }
+  #todos .completed div p {
+    background: rgba(231, 241, 244, 0.5); }
+
+footer {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  width: 100vw; }
+  footer .filter-button {
+    width: calc(100%/3);
+    height: 100%; }
+  footer .selected {
+    background: #c54a3d; }
+
+/*# sourceMappingURL=main.css.map */
