@@ -46,7 +46,6 @@ function login() {
       type: 'GET',
       dataType: 'JSON',
       success: (response) => {
-        console.log('GET: ', response)
         response.forEach(existingUser => {
           if (existingUser.user === user) {
             userExists = true
@@ -56,9 +55,7 @@ function login() {
           }
         })
         if (userExists) { // Log them in.
-          console.log('EXISTING USER FOUND')
         } else { // Create new user
-          console.log('CREATING NEW USER');
           newUserObject = {
             user: $loginInput.val()
           }
@@ -67,7 +64,6 @@ function login() {
             type: 'POST',
             dataType: 'JSON',
             success: (response) => {
-              console.log('POST: ', response)
               userID = response._id
             },
             data: newUserObject
@@ -97,8 +93,6 @@ $newTodoBtn.on('click',() => {
   $modalContainer.css('display', 'flex') // Hides modal container
   $newTodoModal.css('display', 'flex') // Show new-todo modal
   $modalContainer.on('click', (e) => {
-    console.log('clicked container');
-    console.log(e.target.id);
     if (e.target.id === 'modal-container') {
       $modalContainer.css('display', 'none')
       $modal.css('display', 'none')
@@ -136,16 +130,25 @@ $filterAllBtn.on('click', function() {
   $('.filter-button').removeClass('selected')
   $(this).addClass('selected')
   addTodos()
+  if ($searchBar.css('width') !== '0px') { // If the search bar is open, hide it.
+    toggleSearchBar()
+  }
 })
 $filterCompletedBtn.on('click', function() {
   $('.filter-button').removeClass('selected')
   $(this).addClass('selected')
   addTodos('completed')
+  if ($searchBar.css('width') !== '0px') {
+    toggleSearchBar()
+  }
 })
 $filterTodoBtn.on('click', function() {
   $('.filter-button').removeClass('selected')
   $(this).addClass('selected')
   addTodos('uncompleted')
+  if ($searchBar.css('width') !== '0px') {
+    toggleSearchBar()
+  }
 })
 
 
@@ -156,7 +159,6 @@ function addTodos(filterType, searchWord) {
   $todos.empty()
 
   let filteredTodos = todosData
-  console.log(filterType);
   if (filterType !== undefined) {
     if (filterType === 'completed') {
       filteredTodos = filteredTodos.filter(function(todo){
@@ -168,7 +170,7 @@ function addTodos(filterType, searchWord) {
       })
     } else {
       filteredTodos = filteredTodos.filter(function(todo){
-        return todo.title.indexOf(searchWord) !== -1
+        return todo.title.toLowerCase().indexOf(searchWord.toLowerCase()) !== -1
       })
     }
   }
@@ -188,7 +190,6 @@ function addTodos(filterType, searchWord) {
 
 
 function deleteTodo(e) {
-  console.log('DELETE');
   todosData.forEach((todo, i) => {
     if (todo.title === $(e.target).closest('li').children('div').children('h3').text()) {
       todosData.splice(i, 1)
@@ -214,7 +215,6 @@ function toggleTODO(e) {
           description: todo.description,
           state: 1
         }
-        console.log('CHECK it');
         $(e.target).closest('li').children('i').removeClass('fa-circle').addClass('fa-check')
       }
     })
@@ -255,13 +255,22 @@ function put() {
   })
 }
 
-$searchBtn.on('click', function(){
-  $searchBar.css('display', 'block')
-  $searchBar.css('width', 'calc(100% - 181px)')
-  $searchBar.css('padding-left', '20px')
-  console.log('click');
-})
+$searchBtn.on('click', toggleSearchBar)
+
+function toggleSearchBar() {
+  if ($searchBar.css('width') === '0px') {
+    $searchBar.css('width', 'calc(100% - 181px)')
+    $searchBar.css('padding-left', '20px')
+  } else {
+    $searchBar.css('width', '0')
+    $searchBar.css('padding-left', '0')
+  }
+}
 
 $searchBar.on('keyup', function(e){
   addTodos('search', $searchBar.val())
+  if (e.keyCode === 13) {
+    toggleSearchBar()
+    $searchBar.val('')
+  }
 })
