@@ -158,7 +158,12 @@ header {
     background: #fff;
     width: 80%;
     h2 {
-      color: #000;
+      color: #fff;
+      background: $actionColor;
+      border: 0;
+      padding: 20px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
     }
     #new-todo-form {
       display: flex;
