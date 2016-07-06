@@ -42,7 +42,7 @@ function login() {
     let userExists = false
 
     $.ajax({
-      url: 'http://tiny-za-server.herokuapp.com/collections/todo-users/',
+      url: 'https://tiny-za-server.herokuapp.com/collections/todo-users/',
       type: 'GET',
       dataType: 'JSON',
       success: (response) => {
@@ -60,7 +60,7 @@ function login() {
             user: $loginInput.val()
           }
           $.ajax({
-            url: 'http://tiny-za-server.herokuapp.com/collections/todo-users/',
+            url: 'https://tiny-za-server.herokuapp.com/collections/todo-users/',
             type: 'POST',
             dataType: 'JSON',
             success: (response) => {
@@ -250,7 +250,7 @@ function toggleTODO(e) {
 
 function put() {
   $.ajax({
-    url: 'http://tiny-za-server.herokuapp.com/collections/todo-users/' + userID,
+    url: 'https://tiny-za-server.herokuapp.com/collections/todo-users/' + userID,
     type: 'PUT',
     dataType: 'JSON',
     success: (response) => {
