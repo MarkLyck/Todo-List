@@ -210,6 +210,9 @@ header {
       font-size: 1.5rem;
       /* color: rgb(40, 184, 119);*/
       color: $todoColor;
+      &:hover {
+        cursor: pointer;
+      }
     }
     div {
       width: 80%;
@@ -221,6 +224,9 @@ header {
         padding: 20px;
         font-weight: normal;
         background-color: $listHeadingColor;
+        &:hover {
+          cursor: pointer;
+        }
       }
       p {
         padding: 20px;
