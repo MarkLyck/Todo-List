@@ -76,7 +76,7 @@ function login() {
   }
 }
 
-$loginBtn.on('click touchstart', login)
+$loginBtn.on('click touch', login)
 
 
 

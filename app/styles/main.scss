@@ -30,6 +30,7 @@ button {
   background-color: $actionColor;
   border: none;
   color: #fff;
+  cursor: pointer;
   &:hover {
     cursor: pointer;
     background: darken($actionColor, 5%)
