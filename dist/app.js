@@ -1,3 +1,7 @@
+$(function() {
+    FastClick.attach(document.body);
+});
+
 let $todos = $('#todos')
 let $newTodoBtn = $('#new-todo')
 
