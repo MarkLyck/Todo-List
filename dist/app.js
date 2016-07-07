@@ -30,7 +30,6 @@ let todosData = []
 
 
 $loginInput.on('keydown', function(e){
-  document.write(e.keyCode)
   if (e.keyCode === 13) {
     e.preventDefault()
     login()
