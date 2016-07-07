@@ -37,11 +37,13 @@ button {
 }
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: fixed;
   background: $headerColor;
-  // padding: 30px;
-  // position: relative;
+  /* padding: 30px;*/
+  /* position: relative;*/
   height: 80px;
   top: 0;
   width: 100vw;
@@ -50,14 +52,15 @@ header {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
   button {
     margin-left: auto;
     background: none;
-    // border: 1px solid darken($headerColor, 10%);
-    // border-radius: 3px;
-    // padding: 10px;
+    /* border: 1px solid darken($headerColor, 10%);*/
+    /* border-radius: 3px;*/
+    /* padding: 10px;*/
     z-index: 3;
     &:hover {
       background: darken($headerColor, 10%);
@@ -106,12 +109,8 @@ header {
   }
 }
 
-#new-todo {
-  position: absolute;;
-  top: 0;
-  right: 0;
-  width: 80px;
-  // padding: 30px;
+#new-todo { position: absolute;; top: 0; right: 0; width: 80px;
+  /* padding: 30px;*/
   height: 100%;
   background: darken(rgb(203, 92, 81),5%);
 }
@@ -137,8 +136,11 @@ header {
   padding: 0;
   font-size: 1.5rem;
   border: none;
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   z-index: 4;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -148,13 +150,24 @@ header {
   position: absolute;
   top: 0;
   background: rgba(0,0,0,0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   z-index: 5;
   .modal {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     background: #fff;
     width: 80%;
     h2 {
@@ -166,8 +179,13 @@ header {
       border-top-right-radius: 3px;
     }
     #new-todo-form {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
     }
   }
   .new-todo-modal {
@@ -187,9 +205,10 @@ header {
       position: absolute;
       top: 50%;
       left: 2vw;
-      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
       font-size: 1.5rem;
-      // color: rgb(40, 184, 119);
+      /* color: rgb(40, 184, 119);*/
       color: $todoColor;
     }
     div {
@@ -213,6 +232,8 @@ header {
       }
     }
     .list-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
       position: relative;
       border: 0;
@@ -256,6 +277,8 @@ header {
 }
 
 footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: fixed;
   bottom: 0;
