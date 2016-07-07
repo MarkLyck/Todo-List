@@ -23,9 +23,13 @@ button {
     background: #c54a3d; }
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: fixed;
   background: #E1675A;
+  /* padding: 30px;*/
+  /* position: relative;*/
   height: 80px;
   top: 0;
   width: 100vw;
@@ -34,10 +38,14 @@ header {
     position: absolute;
     left: 50%;
     top: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
   header button {
     margin-left: auto;
     background: none;
+    /* border: 1px solid darken($headerColor, 10%);*/
+    /* border-radius: 3px;*/
+    /* padding: 10px;*/
     z-index: 3; }
     header button:hover {
       background: #d93f2f; }
@@ -80,6 +88,7 @@ header {
   top: 0;
   right: 0;
   width: 80px;
+  /* padding: 30px;*/
   height: 100%;
   background: #c54a3d; }
 
@@ -102,8 +111,11 @@ header {
   padding: 0;
   font-size: 1.5rem;
   border: none;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
   z-index: 4;
+  -webkit-transition: 0.5s;
   transition: 0.5s; }
 
 #modal-container {
@@ -112,12 +124,23 @@ header {
   position: absolute;
   top: 0;
   background: rgba(0, 0, 0, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   z-index: 5; }
   #modal-container .modal {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     background: #fff;
     width: 80%; }
@@ -129,7 +152,12 @@ header {
       border-top-left-radius: 3px;
       border-top-right-radius: 3px; }
     #modal-container .modal #new-todo-form {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column; }
   #modal-container .new-todo-modal {
     display: none; }
@@ -146,8 +174,10 @@ header {
       position: absolute;
       top: 50%;
       left: 2vw;
+      -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
       font-size: 1.5rem;
+      /* color: rgb(40, 184, 119);*/
       color: #276ab8; }
     #todos li div {
       width: 80%;
@@ -167,6 +197,8 @@ header {
         border-bottom-right-radius: 3px;
         border-bottom-left-radius: 3px; }
     #todos li .list-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
       position: relative;
       border: 0; }
@@ -196,6 +228,8 @@ header {
     background: rgba(231, 241, 244, 0.5); }
 
 footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: fixed;
   bottom: 0;
